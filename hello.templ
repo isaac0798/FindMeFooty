@@ -1,5 +1,28 @@
 package main
 
-templ hello(name string) {
-	<div>Hello, { name }</div>
+templ hello() {
+	<!DOCTYPE html>
+	<html lang="en" class="h-full">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Find Me Footy</title>
+		<link rel="icon" type="image/svg+xml" href="/dist/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="revisit-after" content="7 days"/>
+		<meta name="language" content="English"/>
+		<script src="https://unpkg.com/htmx.org@1.9.11"></script>
+	</head>
+	<body>
+				<div>Hello, lets find a game!</div>
+				<input type="search" id="site-search" name="team" />
+				<button hx-get="/result" hx-target="#search-results" hx-include="[name='team']">
+					Click Me
+				</button>
+
+				<div id="search-results">
+
+				</div>
+	</body>
+	</html>
 }
